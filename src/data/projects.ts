@@ -3,7 +3,7 @@ import type { Project, SocialLink, Profile } from '../types';
 export const profile: Profile = {
   name: '허선진',
   title: 'Full-Stack Developer',
-  bio: 'React 프론트엔드부터 Node.js 백엔드까지 설계하며 문제를 해결해 나가는 풀스택 개발자',
+  bio: '프론트엔드부터 백엔드까지 설계하며 문제를 해결해 나가는 풀스택 개발자',
   email: 'sonjin54@naver.com',
   skills: ['React', 'Node.js', 'TypeScript', 'JavaScript', 'MySQL']
 };

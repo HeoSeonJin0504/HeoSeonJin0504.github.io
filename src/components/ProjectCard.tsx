@@ -187,6 +187,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   const navigate = useNavigate();
 
   const handleCardClick = () => {
+    window.scrollTo(0, 0);
     navigate(`/project/${project.id}`);
   };
 

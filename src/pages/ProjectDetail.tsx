@@ -359,6 +359,10 @@ const ProjectDetail: React.FC = () => {
 
   const project = projects.find((p) => p.id === Number(id));
 
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
+
   const handlePrevImage = () => {
     if (project) {
       setCurrentImageIndex((prev: number) =>

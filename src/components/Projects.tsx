@@ -50,6 +50,13 @@ const Subheading = styled.p`
   font-size: clamp(1rem, 1.5vw, 1.125rem);
   text-align: center;
   color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+`;
+
+const SubText = styled.p`
+  font-size: clamp(0.875rem, 1.2vw, 1rem);
+  text-align: center;
+  color: var(--color-text-muted);
   margin-bottom: 3rem;
 `;
 
@@ -65,6 +72,7 @@ const Projects: React.FC = () => {
       <Container>
         <Heading className="fade-in-up">Projects</Heading>
         <Subheading className="fade-in-up">지금까지 진행한 프로젝트를 소개합니다</Subheading>
+        <SubText className="fade-in-up">카드를 클릭하면 상세 페이지로 이동합니다</SubText>
         
         <Grid>
           {projects.map((project, index) => (
