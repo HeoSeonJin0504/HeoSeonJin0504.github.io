@@ -44,27 +44,6 @@ const Hero = styled.div`
   margin-bottom: 3rem;
 `;
 
-const ProjectImage = styled.img`
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  border-radius: var(--radius-lg);
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 12px var(--color-shadow);
-`;
-
-const ImagePlaceholder = styled.div`
-  width: 100%;
-  height: 400px;
-  background-color: var(--color-bg-secondary);
-  border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text-muted);
-  margin-bottom: 2rem;
-`;
-
 const Header = styled.div`
   margin-bottom: 2rem;
 `;
