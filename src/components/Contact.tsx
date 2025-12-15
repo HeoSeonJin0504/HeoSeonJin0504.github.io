@@ -69,16 +69,10 @@ const ContactInfo = styled.div`
   margin-bottom: 2rem;
 `;
 
-const Email = styled.a`
+const Email = styled.p`
   font-size: clamp(1.25rem, 2vw, 1.5rem);
   color: var(--color-accent);
   font-weight: 500;
-  text-decoration: none;
-  transition: all var(--transition-base);
-
-  &:hover {
-    opacity: 0.8;
-  }
 `;
 
 const SocialLinks = styled.div`
@@ -124,9 +118,7 @@ const Contact: React.FC = () => {
           </Subheading>
           
           <ContactInfo>
-            <Email href={`mailto:${profile.email}`}>
-              {profile.email}
-            </Email>
+            <Email>{profile.email}</Email>
           </ContactInfo>
 
           <SocialLinks>
