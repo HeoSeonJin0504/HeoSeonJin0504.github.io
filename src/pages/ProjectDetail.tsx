@@ -330,6 +330,32 @@ const Indicator = styled.button<{ $active: boolean }>`
   }
 `;
 
+const ImageContainer = styled.div`
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 12px var(--color-shadow);
+  margin-bottom: 1.5rem;
+  background-color: var(--color-bg-secondary);
+`;
+
+const DiagramImage = styled.img`
+  width: 100%;
+  height: auto;
+  display: block;
+`;
+
+const ImagePlaceholder = styled.div`
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  background-color: var(--color-bg-secondary);
+`;
+
 const ProjectDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -551,6 +577,22 @@ const ProjectDetail: React.FC = () => {
                   {project.role}
                 </MetaItem>
               )}
+              {project.teamSize && (
+                <MetaItem>
+                  <MetaIcon
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </MetaIcon>
+                  {project.teamSize}
+                </MetaItem>
+              )}
             </Meta>
             <Description>{project.description}</Description>
             <TechStack>
@@ -611,6 +653,40 @@ const ProjectDetail: React.FC = () => {
           </Section>
         )}
 
+        {project.role && (
+          <Section>
+            <SectionTitle>담당 역할</SectionTitle>
+            <SectionContent>{project.role}</SectionContent>
+          </Section>
+        )}
+
+        {project.apiDesign && (
+          <Section>
+            <SectionTitle>API 설계</SectionTitle>
+            <SectionContent>{project.apiDesign}</SectionContent>
+            {project.apiImageUrl ? (
+              <ImageContainer>
+                <DiagramImage src={project.apiImageUrl} alt="API 설계" />
+              </ImageContainer>
+            ) : (
+              <ImagePlaceholder>API 설계 이미지 준비 중</ImagePlaceholder>
+            )}
+          </Section>
+        )}
+
+        {project.erdImageUrl && (
+          <Section>
+            <SectionTitle>데이터베이스 ERD</SectionTitle>
+            {project.erdImageUrl ? (
+              <ImageContainer>
+                <DiagramImage src={project.erdImageUrl} alt="ERD 다이어그램" />
+              </ImageContainer>
+            ) : (
+              <ImagePlaceholder>ERD 이미지 준비 중</ImagePlaceholder>
+            )}
+          </Section>
+        )}
+
         {project.features && project.features.length > 0 && (
           <Section>
             <SectionTitle>주요 기능</SectionTitle>
@@ -633,6 +709,13 @@ const ProjectDetail: React.FC = () => {
           <Section>
             <SectionTitle>프로젝트 성과</SectionTitle>
             <SectionContent>{project.results}</SectionContent>
+          </Section>
+        )}
+
+        {project.learnings && (
+          <Section>
+            <SectionTitle>배움과 성장</SectionTitle>
+            <SectionContent>{project.learnings}</SectionContent>
           </Section>
         )}
       </Container>

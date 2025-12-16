@@ -219,6 +219,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           </Section>
         )}
 
+        {project.teamSize && (
+          <Section>
+            <SectionTitle>팀 규모</SectionTitle>
+            <SectionText>{project.teamSize}</SectionText>
+          </Section>
+        )}
+
         {project.role && (
           <Section>
             <SectionTitle>역할</SectionTitle>

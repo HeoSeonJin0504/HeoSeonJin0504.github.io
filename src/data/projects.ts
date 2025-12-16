@@ -40,6 +40,7 @@ export const projects: Project[] = [
     demoUrl: '',
     videoUrl: '/videos/qureka.mp4',
     period: '2025.03 - 2025.11',
+    teamSize: '4명',
     fullDescription: `Qureka는 교육자들이 강의 자료를 쉽게 문제로 변환할 수 있도록 돕는 AI 기반 플랫폼입니다. 
     PDF, PPT 등의 강의 자료를 업로드하면 AI가 자동으로 내용을 분석하고 요약한 뒤, 
     다양한 유형의 문제(객관식, 단답형, 서술형)를 생성합니다.`,
@@ -50,6 +51,10 @@ export const projects: Project[] = [
       '특정 문제 즐겨찾기',
       '요약본 및 문제 TXT, PDF 파일로 다운로드'
     ],
+    apiDesign: '',
+    apiImageUrl: '',  // API 설계
+    erdImageUrl: '/images/qureka/databaseerd.png',  // 데이터베이스 ERD
+    learnings: ``, // 배운점
   },
 
   {
@@ -69,12 +74,17 @@ export const projects: Project[] = [
     demoUrl: '',
     videoUrl: '/videos/imagetostory.mp4',
     period: '2024.09 - 2024.12',
+    teamSize: '4명',
     fullDescription: `그림나래는 아이들이 그린 그림을 동화로 만들어주는 플랫폼입니다. 
     AI가 그림 속 요소들을 분석하고, 재미있고 감동적인 이야기를 만들어냅니다.`,
     features: [
       '이미지 업로드 및 분석',
       '분석된 요소를 바탕으로 AI가 창의적인 동화 생성',
     ],
+    apiDesign: '',
+    apiImageUrl: '',
+    erdImageUrl: '',
+    learnings: ``,
   },
 
   {
@@ -96,6 +106,7 @@ export const projects: Project[] = [
     demoUrl: '',
     videoUrl: '/videos/aienglishtrainer.mp4',
     period: '2025.11 - 2025.12',
+    teamSize: '개인 프로젝트',
     fullDescription: `AI English Trainer는 개인 맞춤형 영어 학습을 제공하는 플랫폼입니다. 
     사용자가 효율적으로 주제 및 단어를 선택해 학습을 할 수 있습니다.`,
     features: [
@@ -104,5 +115,9 @@ export const projects: Project[] = [
       '영작 문제 생성 및 모범 답안 보기 기능',
       '단어장 관리',
     ],
+    apiDesign: '',
+    apiImageUrl: '',
+    erdImageUrl: '',
+    learnings: ``,
   }
 ];
