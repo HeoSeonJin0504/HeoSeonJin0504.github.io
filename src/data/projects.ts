@@ -22,7 +22,7 @@ export const projects: Project[] = [
     title: 'Qureka',
     description: '생성형 AI 기반 교육 콘텐츠 문제 생성기',
     details: ' 강의자료를 업로드하여, 자료의 정보를 요약하고, 이를 바탕으로 문제를 생성해주는 프로그램',
-    role: '프론트엔드(React) 및 백엔드(Node.JS) 및 데이터베이스 관리',
+    role: '프론트엔드(React) 및 백엔드(Node.js) 및 데이터베이스 관리',
     techStack: ['React', 'Node.js', 'FastAPI','Supabase'],
     imageUrls: [  
       '/images/qureka/qureka_1.png',
@@ -62,7 +62,7 @@ export const projects: Project[] = [
     title: '그림나래',
     description: '생성형 AI 기반 동화 생성기',
     details: '그림(PNG, JPG 등)을 업로드 하여, 이와 관련된 동화를 생성해주는 프로그램',
-    role: '프론트엔드(React) 및 백엔드(Node.JS) 및 데이터베이스 관리',
+    role: '프론트엔드(React) 및 백엔드(Node.js) 및 데이터베이스 관리',
     techStack: ['React', 'Node.js','MySQL'],
     imageUrls: [  
       '/images/imagetostory/imagetostory_1.png',
@@ -93,15 +93,19 @@ export const projects: Project[] = [
     description: '생성형 AI 기반 영어 학습 플랫폼',
     details: '예문 생성·토익/영작 문제·단어장 관리를 해주는 프로그램',
     role: '전체 개발(개인 프로젝트)',
-    techStack: ['React', 'Node.js'],
+    techStack: ['React', 'Node.js', 'Spring Boot', 'MySQL'],
     imageUrls: [  
       '/images/aienglishtrainer/aienglishtrainer_1.png',
       '/images/aienglishtrainer/aienglishtrainer_2.png',
       '/images/aienglishtrainer/aienglishtrainer_3.png',
+      '/images/aienglishtrainer/aienglishtrainer_4.png',
+      '/images/aienglishtrainer/aienglishtrainer_5.png',
+      '/images/aienglishtrainer/aienglishtrainer_6.png',
     ],
     githubUrls: [
       { label: 'Frontend', url: 'https://github.com/HeoSeonJin0504/ai-english-trainer-front.git' },
-      { label: 'Backend', url: 'https://github.com/HeoSeonJin0504/ai-english-trainer-node.git' }  
+      { label: 'Backend(Node.js)', url: 'https://github.com/HeoSeonJin0504/ai-english-trainer-node.git' },
+      { label: 'Backend(Spring Boot)', url: 'https://github.com/HeoSeonJin0504/ai-english-trainer-spring.git' }
     ],
     demoUrl: '',
     videoUrl: '/videos/aienglishtrainer.mp4',
@@ -113,7 +117,8 @@ export const projects: Project[] = [
       'AI 기반 맞춤형 예문 생성',
       '토익 유형별 문제 생성 및 채점',
       '영작 문제 생성 및 모범 답안 보기 기능',
-      '단어장 관리',
+      '단어장 및 예문 관리',
+      '문제 관리',
     ],
     apiDesign: '',
     apiImageUrl: '',
