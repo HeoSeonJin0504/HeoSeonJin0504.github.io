@@ -5,7 +5,7 @@ export const profile: Profile = {
   title: 'Full-Stack Developer',
   bio: '생성형 AI를 활용하여 교육·학습 서비스를 만들어온 풀스택 개발자',
   email: 'sonjin54@naver.com',
-  skills: ['React', 'Node.js', 'Spring Boot', 'TypeScript', 'JavaScript', 'FastAPI', 'MySQL', 'Supabase']
+  skills: ['React', 'Node.js', 'Spring Boot', 'TypeScript', 'JavaScript', 'MySQL', 'Supabase']
 };
 
 export const socialLinks: SocialLink[] = [
@@ -34,8 +34,8 @@ export const projects: Project[] = [
       '/images/qureka/qureka_7.png',
     ],
     githubUrls: [
-      { label: 'Frontend', url: 'https://github.com/HeoSeonJin0504/qurekafront.git' },
-      { label: 'Backend', url: 'https://github.com/HeoSeonJin0504/qurekanode-supabase.git' } 
+      { label: 'Frontend(React)', url: 'https://github.com/HeoSeonJin0504/qurekafront.git' },
+      { label: 'Backend(Node.js)', url: 'https://github.com/HeoSeonJin0504/qurekanode-supabase.git' } 
     ],
     demoUrl: '',
     videoUrl: '/videos/qureka.mp4',
@@ -65,8 +65,8 @@ export const projects: Project[] = [
       '/images/imagetostory/imagetostory_1.png',
     ],
     githubUrls: [
-      { label: 'Frontend', url: 'https://github.com/HeoSeonJin0504/image-to-story-front.git' },
-      { label: 'Backend', url: 'https://github.com/HeoSeonJin0504/image-to-story-node.git' }  
+      { label: 'Frontend(React)', url: 'https://github.com/HeoSeonJin0504/image-to-story-front.git' },
+      { label: 'Backend(Node.js)', url: 'https://github.com/HeoSeonJin0504/image-to-story-node.git' }  
     ],
     demoUrl: '',
     videoUrl: '/videos/imagetostory.mp4',
