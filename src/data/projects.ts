@@ -80,6 +80,7 @@ export const projects: Project[] = [
     features: [
       '이미지 업로드 및 분석',
       '분석된 요소를 바탕으로 AI가 창의적인 동화 생성',
+      '생성한 동화 및 그림 저장',
     ],
     erdImageUrl: '/images/imagetostory/imagetostory_erd.png',
   },
