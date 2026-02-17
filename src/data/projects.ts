@@ -51,7 +51,7 @@ export const projects: Project[] = [
       '특정 문제 즐겨찾기',
       '요약본 및 문제 TXT, PDF 파일로 다운로드'
     ],
-    erdImageUrl: '/images/qureka/databaseerd.png',
+    erdImageUrl: '/images/qureka/qureka_erd.png',
   },
 
   {
@@ -78,6 +78,7 @@ export const projects: Project[] = [
       '이미지 업로드 및 분석',
       '분석된 요소를 바탕으로 AI가 창의적인 동화 생성',
     ],
+    erdImageUrl: '/images/imagetostory/imagetostory_erd.png',
   },
 
   {
