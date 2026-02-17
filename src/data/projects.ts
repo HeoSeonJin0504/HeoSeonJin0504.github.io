@@ -22,7 +22,7 @@ export const projects: Project[] = [
     title: 'Qureka',
     description: '생성형 AI 기반 교육 콘텐츠 문제 생성기',
     details: ' 강의자료를 업로드하여, 자료의 정보를 요약하고, 이를 바탕으로 문제를 생성해주는 프로그램',
-    role: '프론트엔드(React) 및 백엔드(Node.js) 및 데이터베이스 관리',
+    role: '프론트엔드(React) 및 백엔드(Node.js)',
     techStack: ['React', 'Node.js', 'FastAPI','Supabase'],
     imageUrls: [  
       '/images/qureka/qureka_1.png',

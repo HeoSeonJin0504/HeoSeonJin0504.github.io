@@ -337,12 +337,44 @@ const ImageContainer = styled.div`
   box-shadow: 0 4px 12px var(--color-shadow);
   margin-bottom: 1.5rem;
   background-color: var(--color-bg-secondary);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+
+  &::after {
+    content: '클릭하여 확대';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.75rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: white;
+    font-size: 0.875rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity var(--transition-base);
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px var(--color-shadow);
+
+    &::after {
+      opacity: 1;
+    }
+  }
 `;
 
 const DiagramImage = styled.img`
   width: 100%;
   height: auto;
   display: block;
+  transition: transform var(--transition-base);
+
+  ${ImageContainer}:hover & {
+    transform: scale(1.02);
+  }
 `;
 
 const ImagePlaceholder = styled.div`
@@ -356,11 +388,66 @@ const ImagePlaceholder = styled.div`
   background-color: var(--color-bg-secondary);
 `;
 
+// 모달 관련 스타일 컴포넌트 추가
+const ModalOverlay = styled.div<{ $isOpen: boolean }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: ${props => props.$isOpen ? 'flex' : 'none'};
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 2rem;
+  animation: fadeIn 0.3s ease;
+`;
+
+const ModalContent = styled.div`
+  position: relative;
+  max-width: 95vw;
+  max-height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ModalImage = styled.img`
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: -3rem;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all var(--transition-base);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+  }
+`;
+
 const ProjectDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imageError, setImageError] = React.useState(false);
+  const [modalImage, setModalImage] = useState<string | null>(null);
 
   const project = projects.find((p) => p.id === Number(id));
 
@@ -442,6 +529,33 @@ const ProjectDetail: React.FC = () => {
 
     return null;
   };
+
+  const handleImageClick = (imageUrl: string) => {
+    setModalImage(imageUrl);
+  };
+
+  const closeModal = () => {
+    setModalImage(null);
+  };
+
+  // ESC 키로 모달 닫기
+  React.useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    };
+
+    if (modalImage) {
+      document.addEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'unset';
+    };
+  }, [modalImage]);
 
   if (!project) {
     return (
@@ -665,7 +779,7 @@ const ProjectDetail: React.FC = () => {
             <SectionTitle>API 설계</SectionTitle>
             <SectionContent>{project.apiDesign}</SectionContent>
             {project.apiImageUrl ? (
-              <ImageContainer>
+              <ImageContainer onClick={() => handleImageClick(project.apiImageUrl!)}>
                 <DiagramImage src={project.apiImageUrl} alt="API 설계" />
               </ImageContainer>
             ) : (
@@ -678,7 +792,7 @@ const ProjectDetail: React.FC = () => {
           <Section>
             <SectionTitle>데이터베이스 ERD</SectionTitle>
             {project.erdImageUrl ? (
-              <ImageContainer>
+              <ImageContainer onClick={() => handleImageClick(project.erdImageUrl!)}>
                 <DiagramImage src={project.erdImageUrl} alt="ERD 다이어그램" />
               </ImageContainer>
             ) : (
@@ -719,6 +833,14 @@ const ProjectDetail: React.FC = () => {
           </Section>
         )}
       </Container>
+
+      {/* 이미지 확대 모달 */}
+      <ModalOverlay $isOpen={!!modalImage} onClick={closeModal}>
+        <ModalContent onClick={(e) => e.stopPropagation()}>
+          <CloseButton onClick={closeModal}>×</CloseButton>
+          {modalImage && <ModalImage src={modalImage} alt="확대 이미지" />}
+        </ModalContent>
+      </ModalOverlay>
     </DetailContainer>
   );
 };
