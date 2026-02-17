@@ -3,9 +3,9 @@ import type { Project, SocialLink, Profile } from '../types';
 export const profile: Profile = {
   name: '허선진',
   title: 'Full-Stack Developer',
-  bio: '프론트엔드부터 백엔드까지 설계하며 문제를 해결해 나가는 풀스택 개발자',
+  bio: '생성형 AI를 활용하여 교육·학습 서비스를 만들어온 풀스택 개발자',
   email: 'sonjin54@naver.com',
-  skills: ['React', 'Node.js', 'TypeScript', 'JavaScript', 'MySQL']
+  skills: ['React', 'Node.js', 'Spring Boot', 'TypeScript', 'JavaScript', 'FastAPI', 'MySQL', 'Supabase']
 };
 
 export const socialLinks: SocialLink[] = [
@@ -51,10 +51,7 @@ export const projects: Project[] = [
       '특정 문제 즐겨찾기',
       '요약본 및 문제 TXT, PDF 파일로 다운로드'
     ],
-    apiDesign: '',
-    apiImageUrl: '',  // API 설계
-    erdImageUrl: '/images/qureka/databaseerd.png',  // 데이터베이스 ERD
-    learnings: ``, // 배운점
+    erdImageUrl: '/images/qureka/databaseerd.png',
   },
 
   {
@@ -81,10 +78,6 @@ export const projects: Project[] = [
       '이미지 업로드 및 분석',
       '분석된 요소를 바탕으로 AI가 창의적인 동화 생성',
     ],
-    apiDesign: '',
-    apiImageUrl: '',
-    erdImageUrl: '',
-    learnings: ``,
   },
 
   {
@@ -120,9 +113,5 @@ export const projects: Project[] = [
       '단어장 및 예문 관리',
       '문제 관리',
     ],
-    apiDesign: '',
-    apiImageUrl: '',
-    erdImageUrl: '',
-    learnings: ``,
   }
 ];
