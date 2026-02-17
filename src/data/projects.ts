@@ -114,5 +114,6 @@ export const projects: Project[] = [
       '단어장 및 예문 관리',
       '문제 관리',
     ],
+    erdImageUrl: '/images/aienglishtrainer/ai_english_trainer_erd.png',
   }
 ];
