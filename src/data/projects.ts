@@ -63,6 +63,9 @@ export const projects: Project[] = [
     techStack: ['React', 'Node.js','MySQL'],
     imageUrls: [  
       '/images/imagetostory/imagetostory_1.png',
+      '/images/imagetostory/imagetostory_2.png',
+      '/images/imagetostory/imagetostory_3.png',
+      '/images/imagetostory/imagetostory_4.png',
     ],
     githubUrls: [
       { label: 'Frontend(React)', url: 'https://github.com/HeoSeonJin0504/image-to-story-front.git' },
