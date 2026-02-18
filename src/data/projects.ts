@@ -59,7 +59,7 @@ export const projects: Project[] = [
     title: '그림나래',
     description: '생성형 AI 기반 동화 생성기',
     details: '그림(PNG, JPG 등)을 업로드 하여, 이와 관련된 동화를 생성해주는 프로그램',
-    role: '프론트엔드(React) 및 백엔드(Node.js) 및 데이터베이스 관리',
+    role: '프론트엔드(React) 및 백엔드(Node.js)',
     techStack: ['React', 'Node.js','MySQL'],
     imageUrls: [  
       '/images/imagetostory/imagetostory_1.png',
@@ -73,7 +73,7 @@ export const projects: Project[] = [
     ],
     demoUrl: '',
     videoUrl: '/videos/imagetostory.mp4',
-    period: '2024.09 - 2024.12',
+    period: '2024.09 - ing',
     teamSize: '4명',
     fullDescription: `그림나래는 아이들이 그린 그림을 동화로 만들어주는 플랫폼입니다. 
     AI가 그림 속 요소들을 분석하고, 재미있고 감동적인 이야기를 만들어냅니다.`,
@@ -81,6 +81,7 @@ export const projects: Project[] = [
       '이미지 업로드 및 분석',
       '분석된 요소를 바탕으로 AI가 창의적인 동화 생성',
       '생성한 동화 및 그림 저장',
+      '생성한 동화 TTS로 듣기',
     ],
     erdImageUrl: '/images/imagetostory/imagetostory_erd.png',
   },
@@ -107,7 +108,7 @@ export const projects: Project[] = [
     ],
     demoUrl: '',
     videoUrl: '/videos/aienglishtrainer.mp4',
-    period: '2025.11 - 2025.12',
+    period: '2025.11 - ing',
     teamSize: '개인 프로젝트',
     fullDescription: `AI English Trainer는 개인 맞춤형 영어 학습을 제공하는 플랫폼입니다. 
     사용자가 효율적으로 주제 및 단어를 선택해 학습을 할 수 있습니다.`,
