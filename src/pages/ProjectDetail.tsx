@@ -103,9 +103,8 @@ const Links = styled.div`
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  padding-bottom: 3rem;
-  border-bottom: 1px solid var(--color-border);
-  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 `;
 
 const Link = styled.a`
@@ -446,6 +445,89 @@ const ImagePlaceholder = styled.div`
   color: var(--color-text-muted);
   font-size: 1rem;
   background-color: var(--color-bg-secondary);
+`;
+
+// 테스트 계정 관련 스타일 컴포넌트
+const TestAccountBox = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.875rem 1.25rem;
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.08) 0%, rgba(245, 158, 11, 0.06) 100%);
+  border: 1px solid rgba(234, 179, 8, 0.35);
+  border-radius: var(--radius-md);
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+  margin-bottom: 3rem;
+`;
+
+const TestAccountLabel = styled.span`
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #92400e;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+`;
+
+const TestAccountDivider = styled.span`
+  width: 1px;
+  height: 1rem;
+  background-color: rgba(180, 140, 0, 0.3);
+  flex-shrink: 0;
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+`;
+
+const TestAccountFields = styled.div`
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  row-gap: 0.35rem;
+`;
+
+const TestAccountField = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+`;
+
+const TestAccountFieldLabel = styled.span`
+  font-size: 0.8rem;
+  color: #92400e;
+  font-weight: 600;
+`;
+
+const TestAccountValue = styled.code`
+  font-size: 0.85rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  color: #78350f;
+  background-color: rgba(234, 179, 8, 0.15);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  user-select: all;
+
+  &:hover {
+    background-color: rgba(234, 179, 8, 0.28);
+  }
+`;
+
+const TestAccountCopyHint = styled.span`
+  font-size: 0.73rem;
+  color: #a16207;
+  margin-left: auto;
+  white-space: nowrap;
+  opacity: 0.75;
+
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 // 모달 관련 스타일 컴포넌트 추가
@@ -846,6 +928,29 @@ const ProjectDetail: React.FC = () => {
               </DeployedBadge>
             ) : null}
           </Links>
+
+          {/* 테스트 계정 */}
+          {project.testAccount && (
+            <TestAccountBox>
+              <TestAccountLabel>테스트 계정</TestAccountLabel>
+              <TestAccountDivider />
+              <TestAccountFields>
+                <TestAccountField>
+                  <TestAccountFieldLabel>ID</TestAccountFieldLabel>
+                  <TestAccountValue title="">
+                    {project.testAccount.id}
+                  </TestAccountValue>
+                </TestAccountField>
+                <TestAccountField>
+                  <TestAccountFieldLabel>PW</TestAccountFieldLabel>
+                  <TestAccountValue title="">
+                    {project.testAccount.password}
+                  </TestAccountValue>
+                </TestAccountField>
+              </TestAccountFields>
+              <TestAccountCopyHint></TestAccountCopyHint>
+            </TestAccountBox>
+          )}
         </Hero>
 
         {project.videoUrl && (

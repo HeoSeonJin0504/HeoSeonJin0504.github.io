@@ -256,6 +256,21 @@ const SoloBadge = styled.span`
   line-height: 1.6;
 `;
 
+const TestAccountBadge = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.875rem;
+  padding: 0.5rem 0.75rem;
+  background-color: rgba(234, 179, 8, 0.08);
+  border: 1px dashed rgba(234, 179, 8, 0.5);
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  color: #92400e;
+  font-weight: 500;
+  width: fit-content;
+`;
+
 interface ProjectCardProps {
   project: Project;
   index: number;
@@ -352,6 +367,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             </Link>
           )}
         </Links>
+
+          {project.testAccount && (
+            <TestAccountBadge>
+              상세 페이지에 테스트 계정 정보가 있습니다!
+            </TestAccountBadge>
+          )}
       </Content>
     </Card>
   );

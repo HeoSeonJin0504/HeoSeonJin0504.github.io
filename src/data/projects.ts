@@ -79,6 +79,7 @@ export const projects: Project[] = [
     ],
     erdImageUrl: "/images/qureka/qureka_erd.png",
     isDeployed: true,
+    testAccount: { id: "1234", password: "1234" },
     background: `AI가 빠르게 발전하면서 ChatGPT에 문서를 붙여넣고 "이거 요약해줘", "문제 만들어줘"라고 요청하는 방식이 일상화됐습니다. 
     하지만 원하는 결과를 얻으려면 요약 방식, 문제 유형, 난이도 등까지 직접 프롬프트로 구체적으로 작성해야 했습니다.
 Qureka는 이 과정을 클릭 몇 번으로 대체할 수 있도록 만든 서비스입니다.
@@ -143,6 +144,7 @@ Qureka는 이 과정을 클릭 몇 번으로 대체할 수 있도록 만든 서�
     ],
     erdImageUrl: "/images/imagetostory/imagetostory_erd.png",
     isDeployed: true,
+    testAccount: { id: "1234", password: "1234" },
     background: `'아이들이 그린 그림이나 가족 사진 등으로 동화를 만들 수 있으면 어떨까?'라는 생각에서 시작하였습니다.
 어렸을 때 부모님께서 동화책을 읽어주셨던 기억도 이 아이디어에 영감을 주었습니다.
 직접 이야기를 지어주고 싶지만 익숙하지 않은 분들을 위해, 그림 한 장으로 동화를 만들어주는 서비스를 개발하였습니다.
@@ -223,13 +225,14 @@ Qureka는 이 과정을 클릭 몇 번으로 대체할 수 있도록 만든 서�
     ],
     erdImageUrl: "/images/aienglishtrainer/ai_english_trainer_erd.png",
     isDeployed: true,
+    testAccount: { id: "1234", password: "1234" },
     background: `영어 공부를 할 때 단어장, 문제집, 강의 영상을 활용하는 방식도 충분하지만, AI를 학습에 접목하면 예문과 문제를 더 다양하게 제공할 수 있겠다고 생각했습니다.
 사용자가 AI에게 직접 물어보는 것보다, 단어를 입력하면 품사·유의어·반의어·예문을 한눈에 보여주고, 주제만 입력하면 문제를 출제해주는 서비스라면 더 간편하고 재미있게 공부할 수 있을 것 같았습니다.
 생성된 내용을 저장해 복습까지 이어질 수 있도록, 학습 흐름을 하나로 묶은 서비스를 개발하였습니다.`,
     challenges: [
       "AI가 JSON 형식을 지키지 않거나 필드를 누락해 파싱이 실패하는 경우가 있었습니다.",
       "단어 생성·문제 생성·챗봇 등 기능마다 원하는 결과를 일관되게 얻을 수 있는 프롬프트를 설계하는 것이 어려웠습니다.",
-      "Node.js에서 Spring Boot로 전환 시, 어노테이션 기반 문법과 Spring이 객체를 직접 관리하는 DI 방식이 낯설어 적응하는 데 어려움이 있었습니다.",
+      "Node.js에서 Spring Boot로 전환 시, 어노테이션 기반 문법과 Spring이 객체를 직접 관리하는 DI 방식 등이 낯설어 적응하는 데 어려움이 있었습니다.",
     ],
     solution: [
       "프롬프트에 JSON 형식과 필드 규칙을 명시하고, 응답에서 JSON만 추출하는 파싱 로직을 별도로 구현하였습니다.",

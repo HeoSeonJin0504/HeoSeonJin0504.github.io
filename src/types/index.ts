@@ -25,6 +25,7 @@ export interface Project {
   apiImageUrl?: string;  // API 설계 이미지
   erdImageUrl?: string;  // ERD 이미지
   learnings?: string;  // 프로젝트를 통해 배운 점
+  testAccount?: { id: string; password: string };  // 테스트 계정
 }
 
 export interface SocialLink {
