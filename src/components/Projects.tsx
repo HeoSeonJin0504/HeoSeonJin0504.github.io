@@ -8,6 +8,8 @@ const ProjectsSection = styled.section`
   min-height: 100vh;
   position: relative;
 
+  background-color: #f8f9fa;
+
   &::before {
     content: '';
     position: absolute;

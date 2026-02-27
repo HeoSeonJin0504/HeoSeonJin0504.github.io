@@ -128,18 +128,43 @@ const Link = styled.a`
 `;
 
 const OutlineLink = styled(Link)`
-  background-color: transparent;
-  color: var(--color-accent);
-  border: 1px solid var(--color-accent);
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.5);
+  color: #10b981;
+  box-shadow: none;
 
   &:hover {
-    background-color: var(--color-accent-light);
+    background-color: rgba(16, 185, 129, 0.18);
+    border-color: #10b981;
+    color: #10b981;
   }
+`;
+
+const SoloMeta = styled(MetaItem)`
+  color: #d97706;
+  background-color: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: var(--radius-sm);
+  padding: 0.15rem 0.6rem;
+  font-weight: 500;
 `;
 
 const LinkIcon = styled.svg`
   width: 1.25rem;
   height: 1.25rem;
+`;
+
+const DeployedBadge = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: rgba(34, 197, 94, 0.1);
+  color: #16a34a;
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 500;
 `;
 
 const Section = styled.section`
@@ -177,6 +202,28 @@ const FeatureItem = styled.li`
 
   &:before {
     content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: bold;
+  }
+`;
+
+const BulletList = styled.ul`
+  list-style: none;
+  padding: 0;
+`;
+
+const BulletItem = styled.li`
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+
+  &:before {
+    content: "•";
     position: absolute;
     left: 0;
     color: var(--color-accent);
@@ -313,6 +360,19 @@ const ImageIndicators = styled.div`
   justify-content: center;
   gap: 0.5rem;
   margin-top: 1rem;
+`;
+
+const ImageCaption = styled.p`
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  line-height: 1.7;
+  min-height: 1.7em;
+  padding: 0.5rem 1.5rem;
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-sm);
 `;
 
 const Indicator = styled.button<{ $active: boolean }>`
@@ -637,6 +697,13 @@ const ProjectDetail: React.FC = () => {
               )}
             </SliderWrapper>
 
+            {/* 이미지 캡션 - 이미지 바로 아래 */}
+            {project.imageCaptions && project.imageCaptions[currentImageIndex] && (
+              <ImageCaption>
+                {project.imageCaptions[currentImageIndex]}
+              </ImageCaption>
+            )}
+
             {/* 이미지 인디케이터 (이미지가 2개 이상일 때만 표시) */}
             {project.imageUrls.length > 1 && (
               <ImageIndicators>
@@ -692,20 +759,35 @@ const ProjectDetail: React.FC = () => {
                 </MetaItem>
               )}
               {project.teamSize && (
-                <MetaItem>
-                  <MetaIcon
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="9" cy="7" r="4"></circle>
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                  </MetaIcon>
-                  {project.teamSize}
-                </MetaItem>
+                project.teamSize === '개인 프로젝트' ? (
+                  <SoloMeta>
+                    <MetaIcon
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </MetaIcon>
+                    {project.teamSize}
+                  </SoloMeta>
+                ) : (
+                  <MetaItem>
+                    <MetaIcon
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="9" cy="7" r="4"></circle>
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </MetaIcon>
+                    {project.teamSize}
+                  </MetaItem>
+                )
               )}
             </Meta>
             <Description>{project.description}</Description>
@@ -731,7 +813,7 @@ const ProjectDetail: React.FC = () => {
                 {github.label}
               </Link>
             ))}
-            {project.demoUrl && (
+            {project.demoUrl && project.demoUrl.startsWith('http') ? (
               <OutlineLink
                 href={project.demoUrl}
                 target="_blank"
@@ -747,9 +829,22 @@ const ProjectDetail: React.FC = () => {
                   <polyline points="15 3 21 3 21 9"></polyline>
                   <line x1="10" y1="14" x2="21" y2="3"></line>
                 </LinkIcon>
-                Live Demo
+                페이지 방문
               </OutlineLink>
-            )}
+            ) : project.isDeployed ? (
+              <DeployedBadge>
+                <LinkIcon
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </LinkIcon>
+                배포 완료 (링크 준비 중)
+              </DeployedBadge>
+            ) : null}
           </Links>
         </Hero>
 
@@ -767,24 +862,43 @@ const ProjectDetail: React.FC = () => {
           </Section>
         )}
 
-        {project.role && (
+        {project.features && project.features.length > 0 && (
           <Section>
-            <SectionTitle>담당 역할</SectionTitle>
-            <SectionContent>{project.role}</SectionContent>
+            <SectionTitle>주요 기능</SectionTitle>
+            <FeatureList>
+              {project.features.map((feature, index) => (
+                <FeatureItem key={index}>{feature}</FeatureItem>
+              ))}
+            </FeatureList>
           </Section>
         )}
 
-        {project.apiDesign && (
+        {project.background && (
           <Section>
-            <SectionTitle>API 설계</SectionTitle>
-            <SectionContent>{project.apiDesign}</SectionContent>
-            {project.apiImageUrl ? (
-              <ImageContainer onClick={() => handleImageClick(project.apiImageUrl!)}>
-                <DiagramImage src={project.apiImageUrl} alt="API 설계" />
-              </ImageContainer>
-            ) : (
-              <ImagePlaceholder>API 설계 이미지 준비 중</ImagePlaceholder>
-            )}
+            <SectionTitle>개발 배경</SectionTitle>
+            <SectionContent>{project.background}</SectionContent>
+          </Section>
+        )}
+
+        {project.challenges && project.challenges.length > 0 && (
+          <Section>
+            <SectionTitle>마주친 문제</SectionTitle>
+            <BulletList>
+              {project.challenges.map((item, index) => (
+                <BulletItem key={index}>{item}</BulletItem>
+              ))}
+            </BulletList>
+          </Section>
+        )}
+
+        {project.solution && project.solution.length > 0 && (
+          <Section>
+            <SectionTitle>해결 방법</SectionTitle>
+            <BulletList>
+              {project.solution.map((item, index) => (
+                <BulletItem key={index}>{item}</BulletItem>
+              ))}
+            </BulletList>
           </Section>
         )}
 
@@ -798,38 +912,6 @@ const ProjectDetail: React.FC = () => {
             ) : (
               <ImagePlaceholder>ERD 이미지 준비 중</ImagePlaceholder>
             )}
-          </Section>
-        )}
-
-        {project.features && project.features.length > 0 && (
-          <Section>
-            <SectionTitle>주요 기능</SectionTitle>
-            <FeatureList>
-              {project.features.map((feature, index) => (
-                <FeatureItem key={index}>{feature}</FeatureItem>
-              ))}
-            </FeatureList>
-          </Section>
-        )}
-
-        {project.challenges && (
-          <Section>
-            <SectionTitle>개발 과정</SectionTitle>
-            <SectionContent>{project.challenges}</SectionContent>
-          </Section>
-        )}
-
-        {project.results && (
-          <Section>
-            <SectionTitle>프로젝트 성과</SectionTitle>
-            <SectionContent>{project.results}</SectionContent>
-          </Section>
-        )}
-
-        {project.learnings && (
-          <Section>
-            <SectionTitle>배움과 성장</SectionTitle>
-            <SectionContent>{project.learnings}</SectionContent>
           </Section>
         )}
       </Container>

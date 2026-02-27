@@ -1,8 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
-
   :root {
     /* Colors - 밝은 테마 */
     --color-bg: #ffffff;
@@ -11,9 +9,9 @@ export const GlobalStyles = createGlobalStyle`
     --color-text-primary: #1a1a1a;
     --color-text-secondary: #4a5568;
     --color-text-muted: #718096;
-    --color-accent: #0891b2;
-    --color-accent-hover: #06b6d4;
-    --color-accent-light: rgba(8, 145, 178, 0.1);
+    --color-accent: #3D56D6;
+    --color-accent-hover: #3049C8;
+    --color-accent-light: rgba(61, 86, 214, 0.12);
     --color-border: #e2e8f0;
     --color-shadow: rgba(0, 0, 0, 0.08);
     
@@ -56,6 +54,8 @@ export const GlobalStyles = createGlobalStyle`
     color: var(--color-text-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -80,6 +80,8 @@ export const GlobalStyles = createGlobalStyle`
     border: none;
     cursor: pointer;
     transition: all var(--transition-base);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
   img {
