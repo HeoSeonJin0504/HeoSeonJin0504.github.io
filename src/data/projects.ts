@@ -171,6 +171,7 @@ Qureka는 이 과정을 클릭 몇 번으로 대체할 수 있도록 만든 서�
     role: "전체 개발(개인 프로젝트)",
     techStack: ["React", "Node.js", "Spring Boot", "MySQL"],
     imageUrls: [
+      "/images/aienglishtrainer/aienglishtrainer_10.png",
       "/images/aienglishtrainer/aienglishtrainer_1.png",
       "/images/aienglishtrainer/aienglishtrainer_2.png",
       "/images/aienglishtrainer/aienglishtrainer_3.png",
@@ -182,6 +183,7 @@ Qureka는 이 과정을 클릭 몇 번으로 대체할 수 있도록 만든 서�
       "/images/aienglishtrainer/aienglishtrainer_9.png",
     ],
     imageCaptions: [
+      "로그인 - 테스트 계정 및 구글·카카오·네이버 로그인을 지원합니다.",
       "예문 생성 - 영어 단어를 입력하면 여러 뜻과 품사를 확인할 수 있습니다.",
       "예문 생성 - 영어 단어를 입력하면 각 뜻에 해당하는 예문을 난이도별로 확인할 수 있습니다.",
       "예문 생성 - 영어 단어를 입력하면 그 단어의 유의어와 반의어를 확인할 수 있습니다.",
@@ -222,6 +224,7 @@ Qureka는 이 과정을 클릭 몇 번으로 대체할 수 있도록 만든 서�
       "학습한 단어·예문·문제 저장 및 조회",
       "챗봇으로 실시간 영어 질문 및 문법 교정",
       "JWT + httpOnly Cookie 기반 인증으로 사용자별 데이터 분리",
+      "구글·카카오·네이버 OAuth 소셜 로그인 지원",
     ],
     erdImageUrl: "/images/aienglishtrainer/ai_english_trainer_erd.png",
     isDeployed: true,
