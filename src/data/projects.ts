@@ -104,7 +104,7 @@ Qureka는 이 과정을 클릭 몇 번으로 대체할 수 있도록 만든 서�
       "그림 한 장을 올리면 AI가 동화를 써주고, TTS로 읽어주는 웹 서비스",
     details:
       "이미지를 업로드하면 AI가 그림 속 요소를 분석해 한국어 동화를 생성하고, Google Cloud TTS로 남성·여성 목소리 낭독까지 제공하는 웹 서비스",
-    role: "프론트엔드(React) 전체 개발, 백엔드(Node.js) 리팩토링",
+    role: "프론트엔드(React) 전체 개발, 백엔드(Node.js, Spring Boot) 리팩토링",
     techStack: ["React", "Node.js", "Spring Boot", "MySQL"],
     imageUrls: [
       "/images/imagetostory/imagetostory_1.png",
