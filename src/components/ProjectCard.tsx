@@ -370,7 +370,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
           {project.testAccount && (
             <TestAccountBadge>
-              상세 페이지에 테스트 계정 정보가 있습니다!
+              상세 페이지에 테스트용 계정이 있습니다!
             </TestAccountBadge>
           )}
       </Content>

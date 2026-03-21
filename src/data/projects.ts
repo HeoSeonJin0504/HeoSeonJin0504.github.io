@@ -60,6 +60,10 @@ export const projects: Project[] = [
         label: "Backend(Node.js)",
         url: "https://github.com/HeoSeonJin0504/qurekanode-supabase.git",
       },
+      {
+        label: "Backend(Spring Boot)",
+        url: "https://github.com/HeoSeonJin0504/qurekaspring-supabase.git",
+      },
     ],
     demoUrl: "https://qureka.vercel.app",
     videoUrl: "/videos/qureka.mp4",
