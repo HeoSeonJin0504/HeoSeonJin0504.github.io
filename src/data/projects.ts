@@ -31,8 +31,24 @@ export const projects: Project[] = [
     description:
       "강의자료 업로드 한 번으로 AI가 요약과 문제까지 만들어주는 학습 보조 서비스",
     details: `PDF·PPTX 문서를 업로드하면 AI가 자동으로 요약본과 문제를 생성하고, 웹에서 바로 풀어보거나 PDF로 저장할 수 있는 웹 서비스`,
-    role: "프론트엔드(React) 리팩토링, 백엔드(Node.js, Spring Boot) 개발 및 리팩토링",
-    techStack: ["React", "Node.js", "FastAPI", "Supabase"],
+    role: [
+      {
+        label: "팀 내 역할",
+        items: [
+          "프론트엔드(React) 주요 페이지 UI 설계 및 구현",
+          "백엔드(Node.js) 사용자 인증, 요약본·문제 CRUD API 개발",
+        ],
+      },
+      {
+        label: "이후 개인 개발",
+        items: [
+          "타 팀원 담당 OpenAI 연동 기능(FastAPI)을 Node.js로 통합",
+          "동일 기능 Spring Boot로 재구현",
+          "리팩토링 및 유지보수 중",
+        ],
+      },
+    ],
+    techStack: ["React", "Node.js", "Spring Boot", "Supabase"],
     imageUrls: [
       "/images/qureka/qureka_1.png",
       "/images/qureka/qureka_2.png",
@@ -108,7 +124,20 @@ Qureka는 이 과정을 클릭 몇 번으로 대체할 수 있도록 만든 서�
       "그림 한 장을 올리면 AI가 동화를 써주고, TTS로 읽어주는 웹 서비스",
     details:
       "이미지를 업로드하면 AI가 그림 속 요소를 분석해 한국어 동화를 생성하고, Google Cloud TTS로 남성·여성 목소리 낭독까지 제공하는 웹 서비스",
-    role: "프론트엔드(React) 전체 개발, 백엔드(Node.js, Spring Boot) 리팩토링",
+    role: [
+      {
+        label: "팀 내 역할",
+        items: ["프론트엔드(React) 전체 개발"],
+      },
+      {
+        label: "이후 개인 개발",
+        items: [
+          "타 팀원 담당 백엔드(FastAPI) 기능 전체를 Node.js·Spring Boot로 재구현",
+          "TTS 기능 추가",
+          "리팩토링 및 유지보수 중"
+        ],
+      },
+    ],
     techStack: ["React", "Node.js", "Spring Boot", "MySQL"],
     imageUrls: [
       "/images/imagetostory/imagetostory_1.png",

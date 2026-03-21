@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { projects } from "../data/projects";
@@ -298,7 +298,7 @@ const SliderWrapper = styled.div`
 const SliderImage = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: contain; 
+  object-fit: contain;
   transition: opacity 0.3s ease;
 `;
 
@@ -401,7 +401,7 @@ const ImageContainer = styled.div`
   position: relative;
 
   &::after {
-    content: '클릭하여 확대';
+    content: "클릭하여 확대";
     position: absolute;
     bottom: 0;
     left: 0;
@@ -453,7 +453,11 @@ const TestAccountBox = styled.div`
   align-items: center;
   gap: 1rem;
   padding: 0.875rem 1.25rem;
-  background: linear-gradient(135deg, rgba(234, 179, 8, 0.08) 0%, rgba(245, 158, 11, 0.06) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(234, 179, 8, 0.08) 0%,
+    rgba(245, 158, 11, 0.06) 100%
+  );
   border: 1px solid rgba(234, 179, 8, 0.35);
   border-radius: var(--radius-md);
   flex-wrap: wrap;
@@ -502,7 +506,7 @@ const TestAccountFieldLabel = styled.span`
 
 const TestAccountValue = styled.code`
   font-size: 0.85rem;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-weight: 700;
   color: #78350f;
   background-color: rgba(234, 179, 8, 0.15);
@@ -538,7 +542,7 @@ const ModalOverlay = styled.div<{ $isOpen: boolean }>`
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.9);
-  display: ${props => props.$isOpen ? 'flex' : 'none'};
+  display: ${(props) => (props.$isOpen ? "flex" : "none")};
   align-items: center;
   justify-content: center;
   z-index: 2000;
@@ -584,6 +588,36 @@ const CloseButton = styled.button`
   }
 `;
 
+const RoleGroupLabel = styled.p`
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+`;
+
+const DetailRoleItem = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+`;
+
+const DetailRoleBullet = styled.span`
+  flex-shrink: 0;
+  font-size: 1rem;
+  color: var(--color-accent);
+  font-weight: bold;
+  line-height: 1.8;
+`;
+
+const DetailRoleText = styled.span`
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+`;
+
 const ProjectDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -600,7 +634,7 @@ const ProjectDetail: React.FC = () => {
   const handlePrevImage = () => {
     if (project) {
       setCurrentImageIndex((prev: number) =>
-        prev === 0 ? project.imageUrls.length - 1 : prev - 1
+        prev === 0 ? project.imageUrls.length - 1 : prev - 1,
       );
       setImageError(false);
     }
@@ -609,7 +643,7 @@ const ProjectDetail: React.FC = () => {
   const handleNextImage = () => {
     if (project) {
       setCurrentImageIndex((prev: number) =>
-        prev === project.imageUrls.length - 1 ? 0 : prev + 1
+        prev === project.imageUrls.length - 1 ? 0 : prev + 1,
       );
       setImageError(false);
     }
@@ -683,19 +717,19 @@ const ProjectDetail: React.FC = () => {
   // ESC 키로 모달 닫기
   React.useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         closeModal();
       }
     };
 
     if (modalImage) {
-      document.addEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'hidden';
+      document.addEventListener("keydown", handleEscape);
+      document.body.style.overflow = "hidden";
     }
 
     return () => {
-      document.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'unset';
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "unset";
     };
   }, [modalImage]);
 
@@ -780,11 +814,12 @@ const ProjectDetail: React.FC = () => {
             </SliderWrapper>
 
             {/* 이미지 캡션 - 이미지 바로 아래 */}
-            {project.imageCaptions && project.imageCaptions[currentImageIndex] && (
-              <ImageCaption>
-                {project.imageCaptions[currentImageIndex]}
-              </ImageCaption>
-            )}
+            {project.imageCaptions &&
+              project.imageCaptions[currentImageIndex] && (
+                <ImageCaption>
+                  {project.imageCaptions[currentImageIndex]}
+                </ImageCaption>
+              )}
 
             {/* 이미지 인디케이터 (이미지가 2개 이상일 때만 표시) */}
             {project.imageUrls.length > 1 && (
@@ -826,7 +861,7 @@ const ProjectDetail: React.FC = () => {
                   {project.period}
                 </MetaItem>
               )}
-              {project.role && (
+              {project.role && typeof project.role === "string" && (
                 <MetaItem>
                   <MetaIcon
                     viewBox="0 0 24 24"
@@ -840,8 +875,8 @@ const ProjectDetail: React.FC = () => {
                   {project.role}
                 </MetaItem>
               )}
-              {project.teamSize && (
-                project.teamSize === '개인 프로젝트' ? (
+              {project.teamSize &&
+                (project.teamSize === "개인 프로젝트" ? (
                   <SoloMeta>
                     <MetaIcon
                       viewBox="0 0 24 24"
@@ -869,8 +904,7 @@ const ProjectDetail: React.FC = () => {
                     </MetaIcon>
                     {project.teamSize}
                   </MetaItem>
-                )
-              )}
+                ))}
             </Meta>
             <Description>{project.description}</Description>
             <TechStack>
@@ -895,7 +929,7 @@ const ProjectDetail: React.FC = () => {
                 {github.label}
               </Link>
             ))}
-            {project.demoUrl && project.demoUrl.startsWith('http') ? (
+            {project.demoUrl && project.demoUrl.startsWith("http") ? (
               <OutlineLink
                 href={project.demoUrl}
                 target="_blank"
@@ -960,6 +994,23 @@ const ProjectDetail: React.FC = () => {
           </VideoSection>
         )}
 
+{project.role && Array.isArray(project.role) && (
+  <Section>
+    <SectionTitle>역할</SectionTitle>
+    {project.role.map((group, groupIndex) => (
+      <div key={group.label} style={{ marginBottom: groupIndex < project.role!.length - 1 ? '1.25rem' : 0 }}>
+        <RoleGroupLabel>{group.label}</RoleGroupLabel>
+        {group.items.map((item, i) => (
+          <DetailRoleItem key={i}>
+            <DetailRoleBullet>•</DetailRoleBullet>
+            <DetailRoleText>{item}</DetailRoleText>
+          </DetailRoleItem>
+        ))}
+      </div>
+    ))}
+  </Section>
+)}
+
         {project.fullDescription && (
           <Section>
             <SectionTitle>프로젝트 소개</SectionTitle>
@@ -1011,7 +1062,9 @@ const ProjectDetail: React.FC = () => {
           <Section>
             <SectionTitle>데이터베이스 ERD</SectionTitle>
             {project.erdImageUrl ? (
-              <ImageContainer onClick={() => handleImageClick(project.erdImageUrl!)}>
+              <ImageContainer
+                onClick={() => handleImageClick(project.erdImageUrl!)}
+              >
                 <DiagramImage src={project.erdImageUrl} alt="ERD 다이어그램" />
               </ImageContainer>
             ) : (
