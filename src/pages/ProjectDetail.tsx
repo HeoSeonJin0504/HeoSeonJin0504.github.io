@@ -474,64 +474,12 @@ const TestAccountLabel = styled.span`
   flex-shrink: 0;
 `;
 
-const TestAccountDivider = styled.span`
-  width: 1px;
-  height: 1rem;
-  background-color: rgba(180, 140, 0, 0.3);
-  flex-shrink: 0;
-
-  @media (max-width: 480px) {
-    display: none;
-  }
-`;
-
-const TestAccountFields = styled.div`
-  display: flex;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-  row-gap: 0.35rem;
-`;
-
-const TestAccountField = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-`;
-
-const TestAccountFieldLabel = styled.span`
-  font-size: 0.8rem;
-  color: #92400e;
-  font-weight: 600;
-`;
-
-const TestAccountValue = styled.code`
-  font-size: 0.85rem;
-  font-family: "Courier New", Courier, monospace;
-  font-weight: 700;
+const TestAccountMessage = styled.p`
+  margin: 0;
+  font-size: 0.9rem;
   color: #78350f;
-  background-color: rgba(234, 179, 8, 0.15);
-  padding: 0.15rem 0.5rem;
-  border-radius: 4px;
-  letter-spacing: 0.03em;
-  cursor: pointer;
-  transition: background-color var(--transition-fast);
-  user-select: all;
-
-  &:hover {
-    background-color: rgba(234, 179, 8, 0.28);
-  }
-`;
-
-const TestAccountCopyHint = styled.span`
-  font-size: 0.73rem;
-  color: #a16207;
-  margin-left: auto;
-  white-space: nowrap;
-  opacity: 0.75;
-
-  @media (max-width: 600px) {
-    display: none;
-  }
+  font-weight: 600;
+  line-height: 1.5;
 `;
 
 // 모달 관련 스타일 컴포넌트 추가
@@ -713,6 +661,11 @@ const ProjectDetail: React.FC = () => {
   const closeModal = () => {
     setModalImage(null);
   };
+
+  const testAccountMessage =
+    project && project.title.includes("AI English Trainer")
+      ? "테스트 계정으로 로그인하여 체험해보세요"
+      : "데모 영상과 테스트 계정으로 빠르게 체험해보세요";
 
   // ESC 키로 모달 닫기
   React.useEffect(() => {
@@ -966,23 +919,8 @@ const ProjectDetail: React.FC = () => {
           {/* 테스트 계정 */}
           {project.testAccount && (
             <TestAccountBox>
-              <TestAccountLabel>테스트 계정</TestAccountLabel>
-              <TestAccountDivider />
-              <TestAccountFields>
-                <TestAccountField>
-                  <TestAccountFieldLabel>ID</TestAccountFieldLabel>
-                  <TestAccountValue title="">
-                    {project.testAccount.id}
-                  </TestAccountValue>
-                </TestAccountField>
-                <TestAccountField>
-                  <TestAccountFieldLabel>PW</TestAccountFieldLabel>
-                  <TestAccountValue title="">
-                    {project.testAccount.password}
-                  </TestAccountValue>
-                </TestAccountField>
-              </TestAccountFields>
-              <TestAccountCopyHint></TestAccountCopyHint>
+              <TestAccountLabel>체험 안내</TestAccountLabel>
+              <TestAccountMessage>{testAccountMessage}</TestAccountMessage>
             </TestAccountBox>
           )}
         </Hero>
