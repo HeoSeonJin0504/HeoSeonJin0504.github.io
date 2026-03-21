@@ -171,7 +171,7 @@ Qureka는 이 과정을 클릭 몇 번으로 대체할 수 있도록 만든 서�
 
   {
     id: 3,
-    title: "AI English Trainer",
+    title: "AI English Trainer (영어 AI 파트너)",
     description:
       "단어 검색·문제 생성·단어장 관리를 AI로 제공하는 영어 학습 웹 서비스",
     details:
