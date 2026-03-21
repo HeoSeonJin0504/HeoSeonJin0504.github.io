@@ -31,7 +31,7 @@ export const projects: Project[] = [
     description:
       "강의자료 업로드 한 번으로 AI가 요약과 문제까지 만들어주는 학습 보조 서비스",
     details: `PDF·PPTX 문서를 업로드하면 AI가 자동으로 요약본과 문제를 생성하고, 웹에서 바로 풀어보거나 PDF로 저장할 수 있는 웹 서비스`,
-    role: "프론트엔드(React) 리팩토링, 백엔드(Node.js) 전체 개발",
+    role: "프론트엔드(React) 리팩토링, 백엔드(Node.js, Spring Boot) 개발 및 리팩토링",
     techStack: ["React", "Node.js", "FastAPI", "Supabase"],
     imageUrls: [
       "/images/qureka/qureka_1.png",
